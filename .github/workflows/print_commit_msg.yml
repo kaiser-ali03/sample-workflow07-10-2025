@@ -13,10 +13,10 @@ jobs:
 
         steps: 
             -  name: Checkout code
-               uses: actions/checktout@v4
+               uses: actions/checkout@v5
 
             -  name: Print Message
-               run:  |
+               run: |
                  echo " Commit message : "
                  git log -1 --pretty=%B  # to give body of logs
                
