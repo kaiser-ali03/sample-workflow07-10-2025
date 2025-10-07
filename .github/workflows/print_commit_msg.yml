@@ -1,0 +1,22 @@
+name: Print Commit Message
+
+
+on:
+    push: 
+        branches: 
+            -  'master'
+
+
+jobs: 
+    print-message: 
+        runs-on: ubuntu-latest
+
+        steps: 
+            -  name: Checkout code
+               uses: actions/checktou@v4
+
+            -  name: Print Message
+               run:  |
+                 echo " Commit message : "
+                 git log -1 --pretty=%B  # to give body of logs
+               
