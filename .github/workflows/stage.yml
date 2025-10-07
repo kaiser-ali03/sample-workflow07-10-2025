@@ -1,0 +1,41 @@
+name: Pipeline with Stages #name of script 
+#on is when we want to run , when push
+#used github actions extension to resolve bugs
+
+on: 
+  push: 
+    branches: 
+      - 'main'
+
+jobs: #it is what we want to run
+  build: 
+    runs-on: ubuntu-latest #github inbuilt server
+
+    steps: 
+        - name: Checkout code
+          uses: actions/checkout@v5
+        - name: Build Project
+          run: echo "Building the Project"
+          
+  test:
+    runs-on:  ubuntu-latest
+    needs: build  # this means this will run after build. if build failed then test and deploy will not run
+
+    steps:
+        -  name: Checkout code
+           uses: actions/checkout@v5
+        -  name: Test Project
+           run: echo "running the test..."
+
+  deploy:  
+    runs-on:  ubuntu-latest
+    needs:  test   #this means this will runs after test
+
+    steps: 
+        -  name:  Checkout code
+           uses:  actions/checkout@v5
+        -  name: Deploy Project
+           run: echo "deploying the project..."
+
+
+

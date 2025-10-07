@@ -4,7 +4,8 @@ name: Print Commit Message
 on:
     push: 
         branches: 
-            -  'main'
+            -  'master'
+            # - '**'  to run when we push on any branch
 
 
 jobs: 
