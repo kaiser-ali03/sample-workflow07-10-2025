@@ -1,0 +1,16 @@
+name: Print Message #name of script 
+#on is when we want to run , when push
+on: 
+  push: 
+    branches: 
+      - 'main'
+
+jobs: #it is what we want to run
+  print-message: 
+    runs-on: ubuntu-latest #github inbuilt server
+    steps: 
+        -name: Print Messages
+        -run: 
+            echo "new push detected on main branch"
+
+
