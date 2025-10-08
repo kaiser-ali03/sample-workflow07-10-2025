@@ -5,7 +5,7 @@ name: Python CI #name of script
 on: 
   push: 
     branches: 
-      - 'master'
+      - 'main'
 
 jobs: #it is what we want to run
   build: 
